@@ -1,0 +1,29 @@
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+// 변수
+$bg: #fff;
+
+
+body {
+    background-color: #ddd;
+    
+    .wrap {
+        padding: 20px;
+    }
+
+    .wrap::before {
+        clear: both;
+    }
+
+    .item {
+        padding: 20px; 
+        background-color: $bg;
+        margin: 20px;
+        width: 300px;
+        border-radius: 10px;
+        float: left;
+    }
+
+}
+

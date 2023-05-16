@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ddd;
+}
+body .wrap {
+  padding: 20px;
+}
+body .wrap::before {
+  clear: both;
+}
+body .item {
+  padding: 20px;
+  background-color: #fff;
+  margin: 20px;
+  width: 300px;
+  border-radius: 10px;
+  float: left;
+}
+
+/*# sourceMappingURL=style.css.map */
