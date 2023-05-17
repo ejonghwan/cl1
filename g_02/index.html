@@ -5,26 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./test.css">
     <title>Document</title>
 </head>
 <body>
     <section class="wrap">
         <article class="item">
+            <h2>hoho</h2>
+            <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut eveniet, impedit rerum libero repellat adipisci.
+                <p>
+                    <span class="hoho">aa</span>
+                </p>
+            </div>
+            <a href="javascript" class="view">btn</a>
+        </article>
+        <article class="item">
+            <h2>hoho</h2>
             <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut eveniet, impedit rerum libero repellat adipisci.</div>
             <a href="javascript" class="view">btn</a>
         </article>
         <article class="item">
+            <h2>hoho</h2>
             <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut eveniet, impedit rerum libero repellat adipisci.</div>
             <a href="javascript" class="view">btn</a>
         </article>
         <article class="item">
+            <h2>hoho</h2>
             <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut eveniet, impedit rerum libero repellat adipisci.</div>
             <a href="javascript" class="view">btn</a>
         </article>
-        <article class="item">
-            <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut eveniet, impedit rerum libero repellat adipisci.</div>
-            <a href="javascript" class="view">btn</a>
-        </article>
+
+        <div class="wrap1">asdasd</div>
     </section>
+
+
+    <script>
+
+        let items = document.querySelectorAll('.item')
+        let wrap1 = document.querySelector('.wrap1')
+        
+        for(let i = 0; i < items.length; i++) {
+            // setTimeout(function() {
+                items[i].classList.add('action')
+            // }, 0)
+        }   
+
+        // setTimeout(function() {
+            wrap1.classList.add('aabb')
+        // }, 0)
+    </script>
 </body>
 </html>

@@ -3,27 +3,111 @@
 
 // 변수
 $bg: #fff;
+$fontSize15: 13px;
+$colorBlue: red;
+$colorWhite: #fff;
+$color222: #222;
+$color666: #666;
+
+
+@mixin button($color, $width, $height, $radius, $padding) {
+    width: $width;
+    height: $height;
+    background-color: $color;
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: $padding;
+    color: #fff;
+    text-decoration: none;
+    border-radius: $height / 2;
+    margin-top: 20px;
+}
+
 
 
 body {
     background-color: #ddd;
     
+
     .wrap {
         padding: 20px;
+       
+
+        &::before {
+            clear: both;
+            display: block;
+        }
+
+        h2 {
+            color: #222;
+            margin-bottom: 10px;
+        }
+
+        .item {
+            padding: 20px; 
+            background-color: $bg;
+            font-size: $fontSize15;
+            color: $color666;
+            margin: 20px;
+            width: 300px;
+            border-radius: 10px;
+            float: left;
+            transform: translateY(10px);
+            transition: all 1s;
+            opacity: 0;
+    
+            .hoho {color: blue;}
+
+            // 얘는 뺴도됨
+            &:hover { 
+                background-color: $colorBlue;
+                color: $colorWhite;
+            }
+        }
+        .item.action {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+
+
+        // .item:nth-child(1) {
+        //     transition-delay: .5s;
+        // }
+        // .item:nth-child(2) {
+        //     transition-delay: 1s;
+        // }
+        // .item:nth-child(3) {
+        //     transition-delay: 1.5s;
+        // }
+        // .item:nth-child(4) {
+        //     transition-delay: 2s;
+        // }
+
+
+        // through ? to ? 
+          @for $i from 1 through 4 {
+            .item:nth-child(#{$i}) {
+                transition-delay: 0.2s * $i
+            }
+          }
+
+        // 한개만 써도됨
+        .view {
+            @include button($color: red, $width: 100%, $height: auto, $radius: 4px, $padding: 10px);
+        }
+
+        
+        
     }
 
-    .wrap::before {
-        clear: both;
-    }
 
-    .item {
-        padding: 20px; 
-        background-color: $bg;
-        margin: 20px;
-        width: 300px;
-        border-radius: 10px;
-        float: left;
-    }
+    
+
+    
+    
 
 }
 

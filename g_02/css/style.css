@@ -12,14 +12,61 @@ body .wrap {
 }
 body .wrap::before {
   clear: both;
+  display: block;
 }
-body .item {
+body .wrap h2 {
+  color: #222;
+  margin-bottom: 10px;
+}
+body .wrap .item {
   padding: 20px;
   background-color: #fff;
+  font-size: 13px;
+  color: #666;
   margin: 20px;
   width: 300px;
   border-radius: 10px;
   float: left;
+  transform: translateY(10px);
+  transition: all 1s;
+  opacity: 0;
+}
+body .wrap .item .hoho {
+  color: blue;
+}
+body .wrap .item:hover {
+  background-color: red;
+  color: #fff;
+}
+body .wrap .item.action {
+  transform: translateY(0);
+  opacity: 1;
+}
+body .wrap .item:nth-child(1) {
+  transition-delay: 0.2s;
+}
+body .wrap .item:nth-child(2) {
+  transition-delay: 0.4s;
+}
+body .wrap .item:nth-child(3) {
+  transition-delay: 0.6s;
+}
+body .wrap .item:nth-child(4) {
+  transition-delay: 0.8s;
+}
+body .wrap .view {
+  width: 100%;
+  height: auto;
+  background-color: red;
+  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: auto/2;
+  margin-top: 20px;
 }
 
 /*# sourceMappingURL=style.css.map */
