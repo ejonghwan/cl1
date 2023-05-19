@@ -40,3 +40,30 @@
         }
     }
 }
+
+
+@media screen and (max-width: $tablet) {
+    #vids {
+        .wrap {
+            gap: 10px;
+            article {
+                flex: 1 1 auto;
+                width: calc(50% - 20px);
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: $mobile) {
+    #vids {
+        .wrap {
+            // gap: 10px;
+            article {
+                flex: 1 1 auto;
+                width: calc(100%);
+                margin-bottom: 10px;
+            }
+        }
+    }
+}
