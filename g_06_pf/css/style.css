@@ -1,3 +1,117 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
 
+ol, ul, li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  width: 100%;
+  height: 120px;
+  padding: 50px 10% 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+}
+header h1 a {
+  font: bold 24px/1 "";
+  color: #333;
+}
+header ul {
+  display: flex;
+  gap: 20px;
+}
+header ul#gnb a {
+  font: bold 14px/1 "AppleGothic";
+  color: #444;
+}
+header ul.sns a {
+  font-size: 20px;
+  color: #888;
+}
+header .btnCall {
+  display: none;
+}
+
+@media screen and (max-width: 980px) {
+  header {
+    height: 100px;
+    padding: 30px 10% 10px;
+  }
+  header h1 {
+    transform: translateY(-3px);
+  }
+  header h1 a {
+    font: bold 20px/1 "";
+  }
+  header ul {
+    display: none;
+  }
+  header .btnCall {
+    color: #111;
+    display: block;
+    font-size: 20px;
+  }
+}
+#visual {
+  width: 100%;
+  height: calc(100vh - 120px);
+  background-color: #072a28;
+  position: relative;
+  display: flex;
+  padding: 0px 10vw;
+  align-items: center;
+}
+#visual video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.3;
+}
+#visual .txt {
+  position: relative;
+}
+#visual .txt h1 {
+  font-size: 9vw;
+  font-weight: normal;
+  line-height: 1;
+  color: #fff;
+}
+#visual .txt p {
+  font: 22px/1.2;
+  color: #d6d6d6;
+  width: 70%;
+  margin-bottom: 50px;
+}
+#visual .txt a {
+  display: inline-block;
+  padding: 10px 30px;
+  text-align: center;
+  border: 1px solid #ddd;
+  color: #fff;
+}
+
+@media screen and (max-width: 980px) {
+  #visual {
+    height: calc(100vh - 100px);
+  }
+  #visual .txt p {
+    width: 100%;
+  }
+  #visual a {
+    width: 100%;
+  }
+}
 
 /*# sourceMappingURL=style.css.map */

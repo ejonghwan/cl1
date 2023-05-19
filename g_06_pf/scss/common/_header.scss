@@ -1,0 +1,67 @@
+header {
+    width: 100%;
+    // padding: 50px 10% 30px;
+    height: 120px;
+    padding: 50px 10% 20px;
+    // border: 1px solid red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+
+    h1 {
+       a {
+            font: bold 24px/1 '';
+            color: #333;
+       }
+    }
+    
+    ul {
+        display: flex;
+        gap: 20px;
+
+        &#gnb {
+            a {
+                font: bold 14px/1 'AppleGothic';
+                color: #444;
+            }
+        }
+
+        &.sns {
+            a {
+                font-size: 20px;
+                color: #888;
+            }
+        }
+    }
+    .btnCall {
+        display: none;
+    }
+}
+
+
+@media screen and (max-width: $tablet) {
+    header {
+        height: 100px;
+        padding: 30px 10% 10px;
+        h1 {
+            transform: translateY(-3px);
+           a {
+                font: bold 20px/1 '';
+           }
+        }
+        
+        ul {
+            display: none;
+        }
+
+        .btnCall {
+            color: #111;
+            display: block;
+            font-size: 20px;
+        }
+    }
+}
+
+
+
