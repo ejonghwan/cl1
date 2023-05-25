@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <section>
+        <ul class="btns">
+            <li>btn1</li>
+            <li class="asdad">btn2</li>
+            <li>btn3</li>
+        </ul>
+   
+
+        <div class="panels">
+            <article>box1</article>
+            <article>box2</article>
+            <article>box3</article>
+        </div>
+    </section>
+
+
+    <script>
+        
+        const btns = document.querySelectorAll('.btns > li');
+        const article = document.querySelectorAll('.panels > article');
+
+        for(let i = 0; i < btns.length; i++) {
+            btns[i].addEventListener('click', function(e) {
+                // if(btns[i].classList.contains('on')) return false;
+                
+                // remove(article);
+                // add(article[i]);
+
+                // remove(btns);
+                // add(btns[i]);
+
+                [article, btns].forEach(ele => {
+                    console.log(ele);
+                    remove(ele)
+                })
+                [article[i], btns[i]].forEach(ele => add(ele))
+            })
+        }
+
+        function add(ele) {
+            ele.classList.add('on')
+        }
+
+        function remove(ele) {
+            for(let i = 0; i < ele.length; i++) {
+                ele[i].classList.remove('on')
+            }
+        }
+
+    </script>
+</body>
+</html>
