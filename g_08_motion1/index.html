@@ -12,14 +12,14 @@
     <section>
         <ul class="btns">
             <li>btn1</li>
-            <li class="asdad">btn2</li>
+            <li class="on">btn2</li>
             <li>btn3</li>
         </ul>
    
 
         <div class="panels">
             <article>box1</article>
-            <article>box2</article>
+            <article class="on">box2</article>
             <article>box3</article>
         </div>
     </section>
@@ -32,21 +32,17 @@
 
         for(let i = 0; i < btns.length; i++) {
             btns[i].addEventListener('click', function(e) {
-                // if(btns[i].classList.contains('on')) return false;
-                
-                // remove(article);
-                // add(article[i]);
-
-                // remove(btns);
-                // add(btns[i]);
-
-                [article, btns].forEach(ele => {
-                    console.log(ele);
-                    remove(ele)
-                })
-                [article[i], btns[i]].forEach(ele => add(ele))
+                if(btns[i].classList.contains('on')) return false;
+             
+                [article, btns].forEach(ele => remove(ele))
+                // [article[i], btns[i]].forEach(ele => add(ele))
+             
+                let tt =  [article[i], btns[i]]
+                tt.forEach(ele => add(ele))
             })
         }
+        
+
 
         function add(ele) {
             ele.classList.add('on')
@@ -57,6 +53,12 @@
                 ele[i].classList.remove('on')
             }
         }
+
+
+
+
+
+
 
     </script>
 </body>
