@@ -34,5 +34,39 @@ body main {
   border-radius: 5px;
   overflow: hidden;
 }
+body main nav {
+  width: 200px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: space-between;
+}
+body main nav h1 {
+  width: 100%;
+  text-align: center;
+  padding-top: 40px;
+}
+body main nav h1 img {
+  width: 100px;
+}
+body main nav ul {
+  width: 100%;
+}
+body main nav ul li {
+  height: 60px;
+}
+body main nav ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: bold 14px/1;
+  color: green;
+}
 
 /*# sourceMappingURL=style.css.map */
