@@ -9,7 +9,37 @@
 </head>
 
 <body>
+  <!-- <h1>
+    <a href="https://www.naver.com" target="blank">네이버</a>
+  </h1> -->
 
+  <script>
+    //h1, a 엘리먼트 노드 생성
+    const h1 = document.createElement('h1');
+    const a = document.createElement('a');
+
+    //href, target 속성 노드 생성
+    const href = document.createAttribute('href');
+    const target = document.createAttribute('target');
+
+    //속성노드에 value값 연결
+    href.value = 'https://www.naver.com';
+    target.value = 'blank';
+
+    //a엘리먼트 노드에 속성노드 바인딩
+    a.setAttributeNode(href);
+    a.setAttributeNode(target);
+
+    //a엘리먼트 노드에 텍스트노드 연결
+    a.innerText = '네이버';
+
+    //h1엘리먼트 노드에 a엘리먼트 노드를 자식으로 붙이기
+    h1.append(a);
+
+    //body안쪽에 h1노드 최종적으로 붙여넣기
+    document.body.prepend(h1);
+
+  </script>
 </body>
 
 </html>
