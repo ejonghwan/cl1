@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        // 1 전개연산자의 기본 개념
+
+        const arr = [1, 2, 3];
+    console.log(arr);
+    console.log(...arr);
+    const newArr = [...arr];
+    newArr[0] = 0;
+    console.log(newArr);
+    console.log(arr);
+
+
+
+    // 2 배열값 합치거나 중복 제거
+     //ES5에서의 배열 합치기
+     var a = [1, 2, 3];
+    var b = [3, 4, 5];
+    var ab = a.concat(b);
+    console.log(ab);
+
+    //ES6에서의 배열 합치기
+    const arr1 = [1, 2, 3];
+    const arr2 = [3, 4, 5];
+    const combinedArr = [...arr1, ...arr2];
+    console.log(combinedArr);
+
+    //전체 배열에서 특정 값의 순서값을 반환
+    const index = combinedArr.indexOf(2);
+    console.log(index);
+
+    //반복 + deep copy + filtering
+    //const result = combinedArr.filter((el, idx) => combinedArr.indexOf(el) === idx);
+    const result = [...new Set(combinedArr)];
+    console.log(result);
+
+    const abc = ['red', 'red', 'blue'];
+    const newAbc = [...new Set(abc)];
+    console.log(newAbc);
+
+
+
+
+    // 3 전개연산자로 객체 합치기
+    //객체 합치기 (ES5)
+    const obj1 = { name: 'David', age: 20 };
+    const obj2 = { name: 'Andy', address: 'Seoul' };
+
+    //asign(새롭게 반환될 빈객체, 덮어쓰기 당할 객체, 덮어쓰기 할 객체)
+    const newObj = Object.assign({}, obj1, obj2);
+    console.log(newObj);
+
+
+    //객체 합치기 (ES6)
+    const objA = { name: 'David', age: 29 };
+    const objB = { name: 'Andy', address: 'Seoul' };
+
+    const newObjAB = { ...obj2, ...obj1 }
+    console.log(newObjAB);
+
+
+
+
+        // 4 전개연산자로 배열, 객체에 값 추가
+         //전개연산자로 배열에 값 추가
+    const arr = [1, 2, 3];
+    const newArr = [...arr, 4];
+    console.log(newArr);
+
+    //전개연산자로 객체에 값 추가
+    const studentA = {
+      name: 'David',
+      age: 20,
+    }
+    const newStudentA = { ...studentA, address: 'Seoul' }
+    console.log(newStudentA);
+
+
+
+
+
+    // 4 ...rest
+
+    const newStudentA = { ...studentA, address: 'Seoul' }
+    console.log(newStudentA);
+    test('홍길동', '게임', '낮잠', '음식', '독서');
+
+    </script>
+
+
+</body>
+</html>
