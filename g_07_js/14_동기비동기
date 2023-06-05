@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>자바스크립트가 비동적기적으로 업무를 처리하는 상황</title>
+</head>
+
+<body>
+  <script>
+    function test(delay, callback) {
+      setTimeout(() => {
+        callback();
+      }, delay)
+    }
+
+    //순서1 - start 콘솔문 실행 (js)
+    console.log('start');
+    //순서2 - test함수를 호출하고 그 안쪽의 setTimeout구문을 web api에게 넘기고 바로 다음 구문으로 넘어감 (js)
+    test(0, () => console.log('test1'));
+    //순서3 - 두번쨰 test함수를 호출하고 다시 그 안쪽의 setTimeout구문을 web api에게 넘기고 다음 구문으로 넘어감 (js)
+    test(0, () => console.log('test2'));
+    //순서4 - 마지막 end구문 실행 (js)
+    console.log('end')
+
+
+  </script>
+</body>
+
+</html>
