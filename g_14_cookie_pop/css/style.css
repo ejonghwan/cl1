@@ -46,6 +46,17 @@ header ul.sns a {
 header .btnCall {
   display: none;
 }
+header.header_main {
+  position: absolute;
+  border-bottom: none;
+  z-index: 2;
+}
+header.header_main h1 a,
+header.header_main ul#gnb a,
+header.header_main ul.sns a,
+header.header_main .btnCall {
+  color: #fff;
+}
 
 /*
   반응형 구현 순서
@@ -122,9 +133,43 @@ footer .lower p:last-child {
     margin-bottom: 10px;
   }
 }
+.content {
+  width: 100%;
+}
+.content .subVisual {
+  width: 100%;
+  height: 250px;
+  background: gray;
+}
+.content .inner {
+  padding: 150px 10vw 100px;
+  min-height: 800px;
+}
+.content .inner h1 {
+  font: normal 50px/1 "arial";
+  color: #333;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 999px) {
+  .content .inner {
+    padding: 100px 10vw 80px;
+  }
+  .content .inner h1 {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 639px) {
+  .content .inner {
+    padding: 80px 40px 60px;
+  }
+  .content .inner h1 {
+    font-size: 24px;
+  }
+}
 #visual {
   width: 100%;
-  height: calc(100vh - 120px);
+  height: 100vh;
   background: #111;
   position: relative;
   display: flex;
@@ -491,6 +536,7 @@ footer .lower p:last-child {
   bottom: 5vh;
   border: 1px solid #777;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+  display: none;
 }
 #pop .content {
   width: 100%;
@@ -512,6 +558,37 @@ footer .lower p:last-child {
 }
 #pop .bottom .close {
   font: bold 14px/1 "arial";
+  color: #555;
+}
+
+.department .inner .wrap::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.department .inner .wrap article {
+  width: 33.3333333333%;
+  float: left;
+  padding: 20px;
+  margin-bottom: 40px;
+}
+.department .inner .wrap article .pic {
+  width: 100%;
+  height: 300px;
+  margin-bottom: 10px;
+}
+.department .inner .wrap article .pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.department .inner .wrap article h2 {
+  font: bold 20px/1 "arial";
+  color: #333;
+  margin-bottom: 5px;
+}
+.department .inner .wrap article p {
+  font: 16px/1 "arial";
   color: #555;
 }
 
