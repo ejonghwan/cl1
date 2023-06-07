@@ -6,13 +6,23 @@ async function fetchDepart() {
 	const data = await result.json();
 	console.log(data);
 }
+
+
+외부데이터 가져오는 공식
+fetch('데이터 URL')
+.then((data)=> data.json()).then((json)=>{
+  //데이터가 성공적으로 받아졌을때 실행할 구문
+  console.log(json);
+})
+.catch(err=> {
+  //데이터 응답에 실패했을때 실행할 구문
+  console.log(err);
+})
 */
 let tags = '';
 
 fetch('/DB/department.json')
-	.then((res) => {
-		return res.json(); //promise객체 반환
-	})
+	.then((res) => res.json())
 	.then((data) => {
 		const memberData = data.members;
 
@@ -32,12 +42,3 @@ fetch('/DB/department.json')
 	.catch((err) => {
 		console.log(err);
 	});
-
-const abc = {
-	a: 'test',
-	b: () => {
-		console.log('test');
-	},
-};
-
-abc.b();
