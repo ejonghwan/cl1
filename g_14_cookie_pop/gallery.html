@@ -10,8 +10,8 @@
   <link rel="stylesheet" href="css/style.css">
   <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
   <script defer src="js/gallery.js"></script>
+  <!-- <script defer src="js/gallery_hard.js"></script> -->
 </head>
-
 <body>
   <header>
     <h1>
@@ -42,6 +42,16 @@
     <figure class="subVisual"></figure>
     <div class="inner">
       <h1>Gallery</h1>
+
+      <div class="searchBox">
+        <input type="text" id="search" placeholder="검색어 입력">
+        <button class="btnSearch">Search</button>
+      </div>
+
+      <div class="btnSet">
+        <button class="btnInterest">Interest Gallery</button>
+        <button class="btnMine">My Gallery</button>
+      </div>
 
       <img src="img/loading.gif" alt="loading" class="loading">
       <ul class="wrap"></ul>
