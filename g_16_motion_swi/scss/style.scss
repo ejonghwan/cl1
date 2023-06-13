@@ -1,0 +1,127 @@
+@import 'reset';
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300&display=swap');
+
+$initPos: 40%;
+$wid: 15vw;
+
+main {
+	width: 100%;
+	height: 100vh;
+	background: #111;
+	position: relative;
+	overflow: hidden;
+
+	.list {
+		li {
+			width: $wid;
+			height: 40vh;
+			position: absolute;
+			top: 40%;
+			left: $initPos;
+			z-index: 3;
+			padding: 20px;
+			transition: 1s;
+
+			.inner {
+				width: 100%;
+				height: 100%;
+				background: #333;
+				padding: 20px;
+				border-radius: 15px;
+				box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+				overflow: hidden;
+				display: flex;
+				align-items: center;
+				transition: 1s;
+
+				h2 {
+					font: bold 20px/1 'teko';
+					color: #888;
+					letter-spacing: 1px;
+					transition: 0.5s 0.5s;
+
+					&::before {
+						content: '';
+						display: block;
+						width: 20px;
+						height: 3px;
+						background: #888;
+						margin-bottom: 10px;
+						transition: 0.5s;
+					}
+				}
+			}
+		}
+
+		//순서별 li의 위치 및 크기
+		//첫번째 패널 : 기존의 활성화되었다가 사라질 패널
+		li:nth-of-type(1) {
+			left: 0px;
+			top: 0px;
+			width: 100%;
+			height: 100%;
+			padding: 0;
+			opacity: 0;
+			z-index: 1;
+			transform: scale(2);
+		}
+
+		//두번째 패널 : 리스트에서 활성화되는 패널
+		li:nth-of-type(2) {
+			left: 0px;
+			top: 0px;
+			width: 100%;
+			height: 100%;
+			padding: 0;
+			z-index: 2;
+			transform: scale(1);
+
+			.inner {
+				background: #222;
+				box-shadow: none;
+				border-radius: 0px;
+				padding: 5vw;
+
+				h2 {
+					color: #fff;
+					font-size: 8vw;
+
+					&::before {
+						background: #fff;
+						height: 6px;
+						width: 6vw;
+						margin-bottom: 20px;
+					}
+				}
+			}
+		}
+
+		//목록 순서별 위치 설정
+		li:nth-of-type(3) {
+			left: calc($initPos + $wid * 0);
+		}
+		li:nth-of-type(4) {
+			left: calc($initPos + $wid * 1);
+		}
+		li:nth-of-type(5) {
+			left: calc($initPos + $wid * 2);
+		}
+		li:nth-of-type(6) {
+			left: calc($initPos + $wid * 3);
+		}
+		li:nth-of-type(7) {
+			left: calc($initPos + $wid * 4);
+		}
+		li:nth-of-type(8) {
+			left: calc($initPos + $wid * 5);
+		}
+	}
+
+	.navi {
+		position: absolute;
+		bottom: 5vh;
+		left: 50%;
+		z-index: 3;
+		color: #fff;
+	}
+}
