@@ -21,6 +21,25 @@ body {
   background: #efefef;
 }
 
+fieldset {
+  border: none;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+input,
+label {
+  vertical-align: middle;
+}
+
+.h {
+  position: absolute;
+  top: -99999px;
+  opacity: 0;
+}
+
 header {
   width: 100%;
   height: 120px;
@@ -719,16 +738,42 @@ footer .lower p:last-child {
   overflow: hidden;
   position: relative;
 }
+.gallery .searchBox {
+  width: 100%;
+  padding: 50px 10px 20px;
+  font-size: 0;
+}
+.gallery .searchBox input {
+  width: 260px;
+  height: 30px;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding-left: 10px;
+}
+.gallery .searchBox .btnSearch {
+  width: 80px;
+  height: 29px;
+  background: #333;
+  color: #fff;
+  font: bold 12px/29px "arial";
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  margin-left: 5px;
+  transform: translateY(-1px);
+}
 .gallery .loading {
-  position: absolute;
-  top: 0;
+  position: fixed;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   opacity: 1;
-  transition: 1s;
+  transition: opacity 1s;
+  z-index: 3;
 }
 .gallery .loading.off {
   opacity: 0;
+  z-index: -1;
 }
 .gallery .wrap {
   opacity: 0;
@@ -755,7 +800,7 @@ footer .lower p:last-child {
   padding: 10px;
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.05);
 }
-.gallery .wrap li > div img {
+.gallery .wrap li > div .thumb {
   width: 100%;
 }
 .gallery .wrap li > div p {
@@ -763,6 +808,19 @@ footer .lower p:last-child {
   color: #777;
   margin-top: 10px;
   margin-bottom: 20px;
+}
+.gallery .wrap li > div .profile {
+  width: 100%;
+}
+.gallery .wrap li > div .profile img {
+  width: 36px;
+}
+.gallery .wrap li > div .profile span {
+  display: inline-block;
+  font: 12px/1 "arial";
+  color: orange;
+  margin-left: 5px;
+  transform: translateY(-10px);
 }
 
 @media screen and (max-width: 999px) {
@@ -774,6 +832,60 @@ footer .lower p:last-child {
   .gallery .wrap li {
     width: 100%;
   }
+}
+.members form table {
+  width: 100%;
+  border: none;
+  border-top: 2px solid #333;
+  border-bottom: 2px solid #333;
+}
+.members form table th,
+.members form table td {
+  border: none;
+  border-bottom: 1px solid #ddd;
+  padding: 16px 25px;
+}
+.members form table th {
+  width: 20%;
+}
+.members form table th input[type=submit],
+.members form table th input[type=reset] {
+  width: 30%;
+  height: 40px;
+  border: 1px solid #333;
+  margin: 10px;
+  font: bold 14px/40px "arial";
+  color: #555;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.members form table th input[type=submit]:hover,
+.members form table th input[type=reset]:hover {
+  background: #333;
+  color: #fff;
+}
+.members form table td {
+  border-left: 1px solid #aaa;
+}
+.members form table td input[type=text],
+.members form table td input[type=password],
+.members form table td input[type=email],
+.members form table td select,
+.members form table td textarea {
+  width: 60%;
+  background: rgba(0, 0, 0, 0.03);
+  padding: 10px;
+  border: 1px solid #aaa;
+  resize: none;
+}
+.members form table td input[type=checkbox],
+.members form table td input[type=radio] {
+  margin-right: 30px;
+}
+.members form table td p {
+  color: hotpink;
+  margin-top: 5px;
+  font: 11px/1 "맑은 고딕";
 }
 
 /*# sourceMappingURL=style.css.map */

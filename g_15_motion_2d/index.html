@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <section>
+        <article>1</article>
+        <article>2</article>
+        <article>3</article>
+    </section>
+
+    <button type="button" class="prev">prev</button>
+    <button type="button" class="next">next</button>
+
+
+
+
+
+    <!-- script  -->
+    <script defer>
+
+        console.log('init !!')
+        const frame = document.querySelector('section');
+        const boxs = frame.querySelectorAll('article');
+        const prev = document.querySelector('.prev')
+        const next = document.querySelector('.next')
+
+        next.addEventListener('click', e => {
+            frame.append(frame.firstElementChild)
+        })
+
+        prev.addEventListener('click', e => {
+            frame.prepend(frame.lastElementChild)
+        })
+    </script>
+
+</body>
+</html>
