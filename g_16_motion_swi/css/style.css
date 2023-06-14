@@ -30,7 +30,7 @@ main .list li {
   left: 40%;
   z-index: 3;
   padding: 20px;
-  transition: 1s;
+  transition: 1s cubic-bezier(0.69, 0.04, 0.41, 0.98);
 }
 main .list li .inner {
   width: 100%;
@@ -96,21 +96,27 @@ main .list li:nth-of-type(2) .inner h2::before {
 }
 main .list li:nth-of-type(3) {
   left: calc(40% + 0vw);
+  transition-delay: 0s;
 }
 main .list li:nth-of-type(4) {
   left: calc(40% + 15vw);
+  transition-delay: 0.1s;
 }
 main .list li:nth-of-type(5) {
   left: calc(40% + 30vw);
+  transition-delay: 0.2s;
 }
 main .list li:nth-of-type(6) {
   left: calc(40% + 45vw);
+  transition-delay: 0.3s;
 }
 main .list li:nth-of-type(7) {
   left: calc(40% + 60vw);
+  transition-delay: 0.4s;
 }
 main .list li:nth-of-type(8) {
   left: calc(40% + 75vw);
+  transition-delay: 0.5s;
 }
 main .navi {
   position: absolute;

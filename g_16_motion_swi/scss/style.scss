@@ -20,7 +20,7 @@ main {
 			left: $initPos;
 			z-index: 3;
 			padding: 20px;
-			transition: 1s;
+			transition: 1s cubic-bezier(.69,.04,.41,.98);
 
 			.inner {
 				width: 100%;
@@ -97,24 +97,39 @@ main {
 		}
 
 		//목록 순서별 위치 설정
-		li:nth-of-type(3) {
-			left: calc($initPos + $wid * 0);
+		// li:nth-of-type(3) {
+		// 	left: calc($initPos + $wid * 0);
+		// 	transition-delay: 0.1s;
+		// }
+		// li:nth-of-type(4) {
+		// 	left: calc($initPos + $wid * 1);
+		// 	transition-delay: 0.1s;
+		// }
+		// li:nth-of-type(5) {
+		// 	left: calc($initPos + $wid * 2);
+		// 	transition-delay: 0.1s;
+		// }
+		// li:nth-of-type(6) {
+		// 	left: calc($initPos + $wid * 3);
+		// 	transition-delay: 0.1s;
+		// }
+		// li:nth-of-type(7) {
+		// 	left: calc($initPos + $wid * 4);
+		// 	transition-delay: 0.1s;
+		// }
+		// li:nth-of-type(8) {
+		// 	left: calc($initPos + $wid * 5);
+		// 	transition-delay: 0.1s;
+		// }
+
+		@for $i from 0 through 5 {
+			li:nth-of-type(#{$i + 3}) {
+				left: calc($initPos + $wid * $i);
+				transition-delay: 0.1s * $i;
+			}
 		}
-		li:nth-of-type(4) {
-			left: calc($initPos + $wid * 1);
-		}
-		li:nth-of-type(5) {
-			left: calc($initPos + $wid * 2);
-		}
-		li:nth-of-type(6) {
-			left: calc($initPos + $wid * 3);
-		}
-		li:nth-of-type(7) {
-			left: calc($initPos + $wid * 4);
-		}
-		li:nth-of-type(8) {
-			left: calc($initPos + $wid * 5);
-		}
+
+		
 	}
 
 	.navi {
