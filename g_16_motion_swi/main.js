@@ -10,9 +10,17 @@ console.log(items, prev, next)
 
 prev.addEventListener('click', e => {
     wrap.prepend(wrap.lastElementChild)
+    prev.classList.add('on');
+    setTimeout(() => {
+        prev.classList.remove('on')
+    }, 600)
 })
 
 
 next.addEventListener('click', e => {
     wrap.append(wrap.firstElementChild)
+    next.classList.add('on');
+    setTimeout(() => {
+        next.classList.remove('on')
+    }, 600)
 })

@@ -30,7 +30,7 @@ main .list li {
   left: 40%;
   z-index: 3;
   padding: 20px;
-  transition: 1s cubic-bezier(0.69, 0.04, 0.41, 0.98);
+  transition: 0.5s cubic-bezier(0.69, 0.04, 0.41, 0.98);
 }
 main .list li .inner {
   width: 100%;
@@ -42,13 +42,13 @@ main .list li .inner {
   overflow: hidden;
   display: flex;
   align-items: center;
-  transition: 1s;
+  transition: 0.5s;
 }
 main .list li .inner h2 {
   font: bold 20px/1 "teko";
   color: #888;
   letter-spacing: 1px;
-  transition: 0.5s 0.5s;
+  transition: 0.2s 0.5s;
 }
 main .list li .inner h2::before {
   content: "";
@@ -154,13 +154,162 @@ main .navi .prev::after,
 main .navi .next::after {
   transform: rotate(-45deg) translateX(0px);
 }
+main .navi .prev.on,
+main .navi .next.on {
+  animation: wrap 0.3s 1;
+}
 main .navi .prev::before, main .navi .prev::after {
   left: 25px;
   transform-origin: left center;
 }
+main .navi .prev span {
+  left: 25px;
+}
+main .navi .prev.on span {
+  animation: prevArrow 0.5s 1;
+}
 main .navi .next::before, main .navi .next::after {
   left: 25px;
   transform-origin: right center;
+}
+main .navi .next span {
+  right: 25px;
+}
+main .navi .next.on span {
+  animation: nextArrow 0.5s 1;
+}
+main .navi span {
+  width: 20px;
+  height: 2px;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  opacity: 1;
+}
+
+@keyframes wrap {
+  0% {
+    transform: scale(1);
+    border: 1px solid rgb(255, 255, 255);
+  }
+  50% {
+    transform: scale(1.5);
+    border: 1px solid rgba(255, 255, 255, 0);
+  }
+  100% {
+    transform: scale(1);
+    border: 1px solid rgb(255, 255, 255);
+  }
+}
+@keyframes prevArrow {
+  0% {
+    left: 25px;
+    width: 20px;
+    opacity: 1;
+  }
+  70% {
+    left: -130px;
+    width: 100px;
+    opacity: 0;
+  }
+  80% {
+    left: 100px;
+    width: 120px;
+    opacity: 0;
+  }
+  100% {
+    left: 25px;
+    width: 20px;
+    opacity: 1;
+  }
+}
+@keyframes nextArrow {
+  0% {
+    right: 25px;
+    width: 20px;
+    opacity: 1;
+  }
+  70% {
+    right: -130px;
+    width: 100px;
+    opacity: 0;
+  }
+  80% {
+    right: 100px;
+    width: 120px;
+    opacity: 0;
+  }
+  100% {
+    right: 25px;
+    width: 20px;
+    opacity: 1;
+  }
+}
+@media screen and (max-width: 979px) {
+  main .list li {
+    width: 15vw;
+    height: 40vh;
+    left: 40%;
+  }
+  main li:nth-of-type(3) {
+    left: calc(40% + 0vw);
+    transition-delay: 0s;
+  }
+  main li:nth-of-type(4) {
+    left: calc(40% + 15vw);
+    transition-delay: 0.1s;
+  }
+  main li:nth-of-type(5) {
+    left: calc(40% + 30vw);
+    transition-delay: 0.2s;
+  }
+  main li:nth-of-type(6) {
+    left: calc(40% + 45vw);
+    transition-delay: 0.3s;
+  }
+  main li:nth-of-type(7) {
+    left: calc(40% + 60vw);
+    transition-delay: 0.4s;
+  }
+  main li:nth-of-type(8) {
+    left: calc(40% + 75vw);
+    transition-delay: 0.5s;
+  }
+  .navi {
+    left: 40%;
+  }
+}
+@media screen and (max-width: 539px) {
+  main .list li {
+    width: 50vw;
+    left: 20px;
+    top: 60%;
+    height: 160px;
+  }
+  main .list li:nth-of-type(3) {
+    left: calc(20px + 0vw);
+    transition-delay: 0s;
+  }
+  main .list li:nth-of-type(4) {
+    left: calc(20px + 50vw);
+    transition-delay: 0.1s;
+  }
+  main .list li:nth-of-type(5) {
+    left: calc(20px + 100vw);
+    transition-delay: 0.2s;
+  }
+  main .list li:nth-of-type(6) {
+    left: calc(20px + 150vw);
+    transition-delay: 0.3s;
+  }
+  main .list li:nth-of-type(7) {
+    left: calc(20px + 200vw);
+    transition-delay: 0.4s;
+  }
+  main .list li:nth-of-type(8) {
+    left: calc(20px + 250vw);
+    transition-delay: 0.5s;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
