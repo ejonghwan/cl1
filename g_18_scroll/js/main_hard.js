@@ -4,12 +4,28 @@ const btns = list.querySelectorAll('li');
 const speed = 500;
 let enableEvent = true;
 let autoScroll = true;
+let eventBlocker = null;
 
-window.addEventListener('scroll', activation);
+/*
+window.addEventListener('scroll', ()=>{
+	console.log('scrolled') 1초동안 총 60번의 이벤트가 발생 (화면의 주사율에 따라 시스템 이벤트가 발생)
+})
+*/
+//스크롤 이벤트가 발생할 때마다 eventBlocker라는 setTimeout이 리턴하는 1씩 증가되는 숫자값이 담길 전역변수 생성
+//결국 setTimeout이 실행될때마다 eventBlocker가 true가 되므로 setTime시간동안은 중복 함수 호출이 막아지고
+//setTimeout이 끝나면 eventBlocker가 null(false)로 바뀌기 때문에 다시 이벤트 호출가능해줌
+//setTimeout의 딜레이값을 200으로 지정하면 1000/200이 되므로 1초에  60번 호출하는 구문을 5번으로 줄임
+window.addEventListener('scroll', () => {
+	if (eventBlocker) return;
+	eventBlocker = setTimeout(() => {
+		console.log('엄청 무거운 작업!!');
+		eventBlocker = null;
+	}, 200);
+});
+
+//window.addEventListener('scroll', activation);
 window.addEventListener('resize', modifyPos);
-autoScroll && window.addEventListener('mousewheel', moveAuto, { passive: false })
-// passive는 휠의 기본기능을 프~디로 막았는데 이거 false안주면 안막힘
-
+autoScroll && window.addEventListener('mousewheel', moveAuto, { passive: false });
 
 btns.forEach((btn, idx) => {
 	btn.addEventListener('click', () => enableEvent && moveScroll(idx));
@@ -39,7 +55,6 @@ function moveScroll(idx) {
 	});
 }
 
-//브라우저 리사이즈시 현재 스크롤 위치값 갱신해주는 함수
 function modifyPos() {
 	const active = list.querySelector('li.on');
 	//const active_index = btns.indexOf(active);
@@ -50,12 +65,11 @@ function modifyPos() {
 	window.scroll(0, secs[active_index].offsetTop);
 }
 
-
-
 function moveAuto(e) {
 	e.preventDefault();
 	const active = list.querySelector('li.on');
 	const active_index = Array.from(btns).indexOf(active);
+	console.log('moveAuto');
 
 	if (e.deltaY > 0) {
 		if (active_index === btns.length - 1) return;
