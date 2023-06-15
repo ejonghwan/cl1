@@ -1,30 +1,33 @@
 const secs = document.querySelectorAll('section');
 const list = document.querySelector('ul');
 const btns = list.querySelectorAll('li');
+const icon = document.querySelector('.svgBox path');
+const box = document.querySelector('.box');
+const icon_len = 2730;
 const speed = 500;
+const baseline = -window.innerHeight / 2;
 let enableEvent = true;
 let autoScroll = true;
 let eventBlocker = null;
 
-/*
-window.addEventListener('scroll', ()=>{
-	console.log('scrolled') 1초동안 총 60번의 이벤트가 발생 (화면의 주사율에 따라 시스템 이벤트가 발생)
-})
-*/
-//스크롤 이벤트가 발생할 때마다 eventBlocker라는 setTimeout이 리턴하는 1씩 증가되는 숫자값이 담길 전역변수 생성
-//결국 setTimeout이 실행될때마다 eventBlocker가 true가 되므로 setTime시간동안은 중복 함수 호출이 막아지고
-//setTimeout이 끝나면 eventBlocker가 null(false)로 바뀌기 때문에 다시 이벤트 호출가능해줌
-//setTimeout의 딜레이값을 200으로 지정하면 1000/200이 되므로 1초에  60번 호출하는 구문을 5번으로 줄임
 window.addEventListener('scroll', () => {
+	//커스텀 스크롤함수 호출 (throttling구문 밖에 호출하는 이유는 path모션을 부드럽게 실행하기 위함)
+	sec3_custom_scroll();
+	sec4_custom_scroll();
+
 	if (eventBlocker) return;
 	eventBlocker = setTimeout(() => {
-		console.log('엄청 무거운 작업!!');
+		activation();
 		eventBlocker = null;
-	}, 200);
+	}, speed);
 });
-
-//window.addEventListener('scroll', activation);
-window.addEventListener('resize', modifyPos);
+window.addEventListener('resize', () => {
+	if (eventBlocker) return;
+	eventBlocker = setTimeout(() => {
+		modifyPos();
+		eventBlocker = null;
+	}, speed);
+});
 autoScroll && window.addEventListener('mousewheel', moveAuto, { passive: false });
 
 btns.forEach((btn, idx) => {
@@ -33,7 +36,6 @@ btns.forEach((btn, idx) => {
 
 function activation() {
 	const scroll = window.scrollY;
-	const baseline = -window.innerHeight / 2;
 
 	secs.forEach((_, idx) => {
 		if (scroll >= secs[idx].offsetTop + baseline) {
@@ -57,19 +59,14 @@ function moveScroll(idx) {
 
 function modifyPos() {
 	const active = list.querySelector('li.on');
-	//const active_index = btns.indexOf(active);
-	//전체 li요소들 중에서 on이 붙어있는 li의 순서값을 저장해주는 구문
-	//indexOf는 순수배열에서만 호출 가능 (btns는 유사배열)
-	//Array.from(유사배열) -> 유사배열을 순수배열로 변환해서 반환
 	const active_index = Array.from(btns).indexOf(active);
-	window.scroll(0, secs[active_index].offsetTop);
+	window.scrollTo({ top: secs[active_index].offsetTop, behavior: 'smooth' });
 }
 
 function moveAuto(e) {
 	e.preventDefault();
 	const active = list.querySelector('li.on');
 	const active_index = Array.from(btns).indexOf(active);
-	console.log('moveAuto');
 
 	if (e.deltaY > 0) {
 		if (active_index === btns.length - 1) return;
@@ -77,5 +74,30 @@ function moveAuto(e) {
 	} else {
 		if (active_index === 0) return;
 		moveScroll(active_index - 1);
+	}
+}
+
+function sec3_custom_scroll() {
+	const scroll = window.scrollY;
+	let scroll2 = (scroll - secs[2].offsetTop - baseline) * 5;
+
+	if (scroll > secs[2].offsetTop + baseline) {
+		scroll2 >= icon_len && (scroll2 = icon_len);
+		icon.style.strokeDashoffset = icon_len - scroll2;
+	} else {
+		icon.style.strokeDashoffset = icon_len;
+	}
+}
+
+function sec4_custom_scroll() {
+	const scroll = window.scrollY;
+	let scroll2 = (scroll - secs[3].offsetTop - baseline) / 500;
+
+	if (scroll > secs[3].offsetTop + baseline) {
+		box.style.transform = `scale(${1 + scroll2}) rotate(${0 + scroll2 * 100}deg)`;
+		box.style.opacity = 1 - scroll2;
+	} else {
+		box.style.transform = `scale(1) rotate(0deg)`;
+		box.style.opacity = 1;
 	}
 }

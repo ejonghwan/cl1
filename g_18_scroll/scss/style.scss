@@ -44,9 +44,41 @@ section {
 	}
 	&:nth-of-type(3) {
 		background: orange;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		.svgBox {
+			width: 700px;
+			height: 700px;
+			border: 1px solid red;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			svg {
+				path {
+					fill: rgba(0, 0, 0, 0.3);
+					stroke: #000;
+					stroke-width: 10;
+					stroke-dasharray: 2730;
+					stroke-dashoffset: 2730;
+					stroke-linecap: round;
+				}
+			}
+		}
 	}
 	&:nth-of-type(4) {
 		background: lightgreen;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		.box {
+			width: 500px;
+			height: 500px;
+			background: #fff;
+		}
 	}
 }
 
