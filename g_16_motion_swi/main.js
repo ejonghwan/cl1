@@ -29,6 +29,7 @@ prev.addEventListener('click', e => {
     setTimeout(() => {
         for(let i = 0; i < items.length; i++) {
             items[i].querySelector('video').pause();
+            items[i].querySelector('video').currentTime = 0;
         }
 
         console.dir(document.querySelectorAll('li')[1].querySelector('video'))
@@ -57,6 +58,7 @@ next.addEventListener('click', e => {
     setTimeout(() => {
         for(let i = 0; i < items.length; i++) {
             items[i].querySelector('video').pause();
+            items[i].querySelector('video').currentTime = 0;
         }
 
         console.dir(document.querySelectorAll('li')[1].querySelector('video'))
